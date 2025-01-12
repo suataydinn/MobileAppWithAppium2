@@ -19,10 +19,7 @@ public class Hooks {
     public void setUp(Scenario scenario) {
         this.scenario = scenario;
         OS.OS = ConfigurationReader.getProperty("platformName", "iOS");
-    }
 
-    @Given("LinkedIn uygulamasi acik durumda")
-    public void linkedInUygulamasiAcikDurumda() {
         try {
             if (OS.isIOS()) {
                 if (Driver.iOS == null) {
@@ -37,7 +34,26 @@ public class Hooks {
             System.out.println("Driver başlatma hatası: " + e.getMessage());
             throw new RuntimeException(e);
         }
+
     }
+
+//    @Given("LinkedIn uygulamasi acik durumda")
+//    public void linkedInUygulamasiAcikDurumda() {
+//        try {
+//            if (OS.isIOS()) {
+//                if (Driver.iOS == null) {
+//                    Driver.iOS = Driver.getIOSDriver();
+//                }
+//            } else if (OS.isAndroid()) {
+//                if (Driver.Android == null) {
+//                    Driver.Android = Driver.getAndroidDriver();
+//                }
+//            }
+//        } catch (Exception e) {
+//            System.out.println("Driver başlatma hatası: " + e.getMessage());
+//            throw new RuntimeException(e);
+//        }
+//    }
 
     @After
     public void tearDown(Scenario scenario) {
