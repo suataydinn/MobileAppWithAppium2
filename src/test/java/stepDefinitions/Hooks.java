@@ -3,7 +3,6 @@ package stepDefinitions;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
-import io.cucumber.java.en.Given;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -37,24 +36,6 @@ public class Hooks {
 
     }
 
-//    @Given("LinkedIn uygulamasi acik durumda")
-//    public void linkedInUygulamasiAcikDurumda() {
-//        try {
-//            if (OS.isIOS()) {
-//                if (Driver.iOS == null) {
-//                    Driver.iOS = Driver.getIOSDriver();
-//                }
-//            } else if (OS.isAndroid()) {
-//                if (Driver.Android == null) {
-//                    Driver.Android = Driver.getAndroidDriver();
-//                }
-//            }
-//        } catch (Exception e) {
-//            System.out.println("Driver başlatma hatası: " + e.getMessage());
-//            throw new RuntimeException(e);
-//        }
-//    }
-
     @After
     public void tearDown(Scenario scenario) {
         try {
@@ -70,6 +51,7 @@ public class Hooks {
         } finally {
             try {
                 Driver.closeDriver();
+           //     Driver.getCurrentDriver().quit();
             } catch (Exception e) {
                 System.out.println("Driver kapatma hatası: " + e.getMessage());
             }
